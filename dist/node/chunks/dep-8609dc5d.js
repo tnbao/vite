@@ -16282,6 +16282,7 @@ async function fileToBuiltUrl(id, config, pluginContext, skipPublicCheck = false
         const originalName = normalizePath$3(path$o.relative(config.root, file));
         const referenceId = pluginContext.emitFile({
             // Ignore directory structure for asset file names
+            // preserveAssetsDir is the custom option
             name: config.build.preserveAssetsDir ? originalName : path.basename(file),
             type: 'asset',
             source: content,
@@ -38464,7 +38465,8 @@ function cssPostPlugin(config) {
                     await thisTask;
                     // emit corresponding css file
                     const referenceId = this.emitFile({
-                        name: path$o.basename(cssFileName),
+                        // preserveAssetsDir is the custom option
+                        name: config.build.preserveAssetsDir ? cssFileName.replace('scss', 'css') : path$o.basename(cssFileName),
                         type: 'asset',
                         source: chunkCSS,
                     });
