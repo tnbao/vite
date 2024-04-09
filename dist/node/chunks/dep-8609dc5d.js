@@ -38002,7 +38002,7 @@ function isEntirelyImport(code) {
 function getBaseInHTML(urlRelativePath, config) {
     // Prefer explicit URL if defined for linking to assets and public files from HTML,
     // even when base relative is specified
-    return config.base === './' || config.base === ''
+    return config.base === './' // || config.base === ''
         ? path$o.posix.join(path$o.posix.relative(urlRelativePath, '').slice(0, -2), './')
         : config.base;
 }
@@ -65655,7 +65655,7 @@ async function resolveConfig(inlineConfig, command, defaultMode = 'development',
     const resolvedBase = relativeBaseShortcut
         ? !isBuild || config.build?.ssr
             ? '/'
-            : './'
+            : config.base
         : resolveBaseUrl(config.base, isBuild, logger) ?? '/';
     const resolvedBuildOptions = resolveBuildOptions(config.build, logger, resolvedRoot);
     // resolve cache directory
@@ -65743,7 +65743,7 @@ async function resolveConfig(inlineConfig, command, defaultMode = 'development',
         configFileDependencies: configFileDependencies.map((name) => normalizePath$3(path$o.resolve(name))),
         inlineConfig,
         root: resolvedRoot,
-        base: resolvedBase.endsWith('/') ? resolvedBase : resolvedBase + '/',
+        base: resolvedBase, // resolvedBase.endsWith('/') ? resolvedBase : resolvedBase + '/',
         rawBase: resolvedBase,
         resolve: resolveOptions,
         publicDir: resolvedPublicDir,
