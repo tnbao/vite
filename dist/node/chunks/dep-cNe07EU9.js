@@ -287,7 +287,7 @@ function withTrailingSlash(path) {
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const AsyncFunction = async function () { }.constructor;
 // https://github.com/nodejs/node/issues/43047#issuecomment-1564068099
-const asyncFunctionDeclarationPaddingLineCount = 
+const asyncFunctionDeclarationPaddingLineCount =
 /** #__PURE__ */ (() => {
     const body = '/*code*/';
     const source = new AsyncFunction('a', 'b', body).toString();
@@ -737,7 +737,7 @@ var constants$6 = {
 	    output = `(?:^(?!${output}).*$)`;
 	  }
 	  return output;
-	}; 
+	};
 } (utils$k));
 
 const utils$j = utils$k;
@@ -2901,12 +2901,12 @@ var commondir = function (basedir, relfiles) {
     else {
         var files = basedir;
     }
-    
+
     var res = files.slice(1).reduce(function (ps, file) {
         if (!file.match(/^([A-Za-z]:)?\/|\\/)) {
             throw new Error('relative path without a basedir');
         }
-        
+
         var xs = file.split(/\/+|\\+/);
         for (
             var i = 0;
@@ -2915,7 +2915,7 @@ var commondir = function (basedir, relfiles) {
         );
         return ps.slice(0, i);
     }, files[0].split(/\/+|\\+/));
-    
+
     // Windows correctly handles paths with forward-slashes
     return res.length > 1 ? res.join('/') : '/'
 };
@@ -3466,7 +3466,7 @@ function expand$4(str, isTop) {
     ? expand$4(m.post, false)
     : [''];
 
-  if (/\$$/.test(m.pre)) {    
+  if (/\$$/.test(m.pre)) {
     for (var k = 0; k < post.length; k++) {
       var expansion = pre+ '{' + m.body + '}' + post[k];
       expansions.push(expansion);
@@ -6515,7 +6515,7 @@ class Chunk {
 			// '  test'.trim()
 			//     split   -> '  ' + 'test'
 			//   ✔️ edit    -> '' + 'test'
-			//   ✖️ edit    -> 'test' + '' 
+			//   ✖️ edit    -> 'test' + ''
 			// TODO is this block necessary?...
 			newChunk.edit('', false);
 			this.content = '';
@@ -11600,7 +11600,7 @@ function requireBrowser$1 () {
 			} catch (error) {
 				return '[UnexpectedJSONParseError]: ' + error.message;
 			}
-		}; 
+		};
 	} (browser$3, browser$3.exports));
 	return browser$3.exports;
 }
@@ -11875,7 +11875,7 @@ function requireNode$1 () {
 		formatters.O = function (v) {
 			this.inspectOpts.colors = this.useColors;
 			return util.inspect(v, this.inspectOpts);
-		}; 
+		};
 	} (node$1, node$1.exports));
 	return node$1.exports;
 }
@@ -12243,7 +12243,7 @@ function testCaseInsensitiveFS() {
     }
     return fs$l.existsSync(CLIENT_ENTRY.replace('client.mjs', 'cLiEnT.mjs'));
 }
-const urlCanParse = 
+const urlCanParse =
 // eslint-disable-next-line n/no-unsupported-features/node-builtins
 URL$3.canParse ??
     // URL.canParse is supported from Node.js 18.17.0+, 20.0.0+
@@ -16122,7 +16122,7 @@ async function urlToBuiltUrl(url, importer, config, pluginContext, forceInline) 
     const file = url[0] === '/'
         ? path$o.join(config.root, url)
         : path$o.join(path$o.dirname(importer), url);
-    return fileToBuiltUrl(file, config, pluginContext, 
+    return fileToBuiltUrl(file, config, pluginContext,
     // skip public check since we just did it above
     true, forceInline);
 }
@@ -16602,7 +16602,7 @@ var convertSourceMap$1 = {};
 	exports.generateMapFileComment = function (file, options) {
 	  var data = 'sourceMappingURL=' + file;
 	  return options && options.multiline ? '/*# ' + data + ' */' : '//# ' + data;
-	}; 
+	};
 } (convertSourceMap$1));
 
 var convertSourceMap = /*@__PURE__*/getDefaultExportFromCjs(convertSourceMap$1);
@@ -17174,7 +17174,7 @@ var utils$f = {};
 	  };
 	  flat(args);
 	  return result;
-	}; 
+	};
 } (utils$f));
 
 const utils$e = utils$f;
@@ -19539,7 +19539,7 @@ var fs$f = {};
 	    }
 	    return Object.assign(Object.assign({}, exports.FILE_SYSTEM_ADAPTER), fsMethods);
 	}
-	exports.createFileSystemAdapter = createFileSystemAdapter; 
+	exports.createFileSystemAdapter = createFileSystemAdapter;
 } (fs$f));
 
 Object.defineProperty(settings$3, "__esModule", { value: true });
@@ -19892,7 +19892,7 @@ var fs$b = {};
 	    }
 	    return Object.assign(Object.assign({}, exports.FILE_SYSTEM_ADAPTER), fsMethods);
 	}
-	exports.createFileSystemAdapter = createFileSystemAdapter; 
+	exports.createFileSystemAdapter = createFileSystemAdapter;
 } (fs$b));
 
 Object.defineProperty(settings$2, "__esModule", { value: true });
@@ -21235,7 +21235,7 @@ var settings = {};
 	        return Object.assign(Object.assign({}, exports.DEFAULT_FILE_SYSTEM_ADAPTER), methods);
 	    }
 	}
-	exports.default = Settings; 
+	exports.default = Settings;
 } (settings));
 
 const taskManager = tasks;
@@ -21661,7 +21661,7 @@ var dist = {};
 	        },
 	    };
 	}
-	exports.lilconfigSync = lilconfigSync; 
+	exports.lilconfigSync = lilconfigSync;
 } (dist));
 
 const ALIAS = Symbol.for('yaml.alias');
@@ -24958,7 +24958,7 @@ class Document {
             replacer = undefined;
         }
         const { aliasDuplicateObjects, anchorPrefix, flow, keepUndefined, onTagObj, tag } = options ?? {};
-        const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(this, 
+        const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(this,
         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
         anchorPrefix || 'a');
         const ctx = {
@@ -32034,7 +32034,7 @@ function cssAnalysisPlugin(config) {
                             ? moduleGraph.createFileOnlyEntry(file)
                             : await moduleGraph.ensureEntryFromUrl(stripBase(await fileToUrl$1(file, config, this), (config.server?.origin ?? '') + devBase), ssr));
                     }
-                    moduleGraph.updateModuleInfo(thisModule, depModules, null, 
+                    moduleGraph.updateModuleInfo(thisModule, depModules, null,
                     // The root CSS proxy module is self-accepting and should not
                     // have an explicit accept list
                     new Set(), null, isSelfAccepting, ssr);
@@ -32062,7 +32062,7 @@ function getEmptyChunkReplacer(pureCssChunkNames, outputFormat) {
     const emptyChunkRE = new RegExp(outputFormat === 'es'
         ? `\\bimport\\s*["'][^"']*(?:${emptyChunkFiles})["'];`
         : `(\\b|,\\s*)require\\(\\s*["'][^"']*(?:${emptyChunkFiles})["']\\)(;|,)`, 'g');
-    return (code) => code.replace(emptyChunkRE, 
+    return (code) => code.replace(emptyChunkRE,
     // remove css import while preserving source map location
     (m) => outputFormat === 'es'
         ? `/* empty css ${''.padEnd(m.length - 15)}*/`
@@ -32763,7 +32763,7 @@ const makeScssWorker = (resolvers, alias, maxWorkers) => {
             return null;
         }
     };
-    const worker = new WorkerWithFallback(() => async (sassPath, data, 
+    const worker = new WorkerWithFallback(() => async (sassPath, data,
     // additionalData can a function that is not cloneable but it won't be used
     options) => {
         // eslint-disable-next-line no-restricted-globals -- this function runs inside a cjs worker
@@ -32975,7 +32975,7 @@ const makeLessWorker = (resolvers, alias, maxWorkers) => {
                 minVersion: [3, 0, 0],
             };
         };
-        return async (lessPath, content, 
+        return async (lessPath, content,
         // additionalData can a function that is not cloneable but it won't be used
         options) => {
             // eslint-disable-next-line no-restricted-globals -- this function runs inside a cjs worker
@@ -33056,7 +33056,7 @@ const lessProcessor = (maxWorkers) => {
 // .styl
 const makeStylWorker = (maxWorkers) => {
     const worker = new WorkerWithFallback(() => {
-        return async (stylusPath, content, root, 
+        return async (stylusPath, content, root,
         // additionalData can a function that is not cloneable but it won't be used
         options) => {
             // eslint-disable-next-line no-restricted-globals -- this function runs inside a cjs worker
@@ -41035,7 +41035,7 @@ function requireDebug () {
 		function coerce(val) {
 		  if (val instanceof Error) return val.stack || val.message;
 		  return val;
-		} 
+		}
 	} (debug$f, debug$f.exports));
 	return debug$f.exports;
 }
@@ -41230,7 +41230,7 @@ function requireBrowser () {
 		  try {
 		    return window.localStorage;
 		  } catch (e) {}
-		} 
+		}
 	} (browser, browser.exports));
 	return browser.exports;
 }
@@ -41490,7 +41490,7 @@ function requireNode () {
 		 * Enable namespaces listed in `process.env.DEBUG` initially.
 		 */
 
-		exports.enable(load()); 
+		exports.enable(load());
 	} (node, node.exports));
 	return node.exports;
 }
@@ -42700,7 +42700,7 @@ var utilsMerge = {exports: {}};
 	    }
 	  }
 	  return a;
-	}; 
+	};
 } (utilsMerge));
 
 var utilsMergeExports = utilsMerge.exports;
@@ -44238,7 +44238,7 @@ var constants$1 = {};
 	exports.isWindows = platform === 'win32';
 	exports.isMacos = platform === 'darwin';
 	exports.isLinux = platform === 'linux';
-	exports.isIBMi = os.type() === 'OS400'; 
+	exports.isIBMi = os.type() === 'OS400';
 } (constants$1));
 
 const fs$7 = require$$0__default;
@@ -45191,7 +45191,7 @@ _watchWithFsEvents(watchPath, realPath, transform, globFilter) {
   if (this.fsw.closed || this.fsw._isIgnored(watchPath)) return;
   const opts = this.fsw.options;
   const watchCallback = async (fullPath, flags, info) => {
-    // PATCH: bypass the callback for better perf when fullPath hit the ignored file list 
+    // PATCH: bypass the callback for better perf when fullPath hit the ignored file list
     if (this.fsw.closed || this.fsw._isIgnored(fullPath)) return;
     if (
       opts.depth !== undefined &&
@@ -47084,7 +47084,7 @@ async function resolveHttpServer({ proxy }, app, httpsOptions) {
             maxSessionMemory: 1000,
             ...httpsOptions,
             allowHTTP1: true,
-        }, 
+        },
         // @ts-expect-error TODO: is this correct?
         app);
     }
@@ -48725,13 +48725,13 @@ function createIsConfiguredAsSsrExternal(config) {
             return false;
         }
         try {
-            return !!tryNodeResolve(id, 
+            return !!tryNodeResolve(id,
             // Skip passing importer in build to avoid externalizing non-hoisted dependencies
             // unresolvable from root (which would be unresolvable from output bundles also)
-            config.command === 'build' ? undefined : importer, resolveOptions, ssr?.target === 'webworker', undefined, true, 
+            config.command === 'build' ? undefined : importer, resolveOptions, ssr?.target === 'webworker', undefined, true,
             // try to externalize, will return undefined or an object without
             // a external flag if it isn't externalizable
-            true, 
+            true,
             // Allow linked packages to be externalized if they are explicitly
             // configured as external
             !!configuredAsExternal)?.external;
@@ -49522,7 +49522,7 @@ function webWorkerPlugin(config) {
                 else if (inlineRE.test(id)) {
                     const chunk = await bundleWorkerEntry(config, id);
                     const encodedJs = `const encodedJs = "${Buffer.from(chunk.code).toString('base64')}";`;
-                    const code = 
+                    const code =
                     // Using blob URL for SharedWorker results in multiple instances of a same worker
                     workerConstructor === 'Worker'
                         ? `${encodedJs}
@@ -49881,7 +49881,7 @@ function workerImportMetaUrlPlugin(config) {
                             builtUrl = await fileToUrl$1(cleanUrl(file), config, this);
                             builtUrl = injectQuery(builtUrl, `${WORKER_FILE_ID}&type=${workerType}`);
                         }
-                        s.update(expStart, expEnd, 
+                        s.update(expStart, expEnd,
                         // add `'' +` to skip vite:asset-import-meta-url plugin
                         `new URL('' + ${JSON.stringify(builtUrl)}, import.meta.url)`);
                     }
@@ -50845,7 +50845,7 @@ async function createPluginContainer(config, moduleGraph, watcher) {
                     errLocation = numberToPos(ctx._activeCode, pos);
                 }
                 catch (err2) {
-                    logger.error(colors$1.red(`Error in error handler:\n${err2.stack || err2.message}\n`), 
+                    logger.error(colors$1.red(`Error in error handler:\n${err2.stack || err2.message}\n`),
                     // print extra newline to separate the two errors
                     { error: err2 });
                     throw err;
@@ -61615,7 +61615,7 @@ var eventemitter3 = {exports: {}};
 	//
 	{
 	  module.exports = EventEmitter;
-	} 
+	}
 } (eventemitter3));
 
 var eventemitter3Exports = eventemitter3.exports;
@@ -61711,7 +61711,7 @@ var requiresPort = function required(port, protocol) {
 	  if (options.auth) {
 	    outgoing.auth = options.auth;
 	  }
-	  
+
 	  if (options.ca) {
 	      outgoing.ca = options.ca;
 	  }
@@ -63292,7 +63292,7 @@ var wsIncoming = {
 	  if(i === false) throw new Error('No such pass');
 
 	  passes.splice(i++, 0, callback);
-	}; 
+	};
 } (httpProxy$3));
 
 var httpProxyExports = httpProxy$3.exports;
@@ -63366,12 +63366,12 @@ var httpProxy$2 = ProxyServer;
 /*!
  * Caron dimonio, con occhi di bragia
  * loro accennando, tutte le raccoglie;
- * batte col remo qualunque s’adagia 
+ * batte col remo qualunque s’adagia
  *
  * Charon the demon, with the eyes of glede,
  * Beckoning to them, collects them all together,
  * Beats with his oar whoever lags behind
- *          
+ *
  *          Dante - The Divine Comedy (Canto III)
  */
 
@@ -64272,7 +64272,7 @@ class ModuleGraph {
             });
         }
     }
-    invalidateModule(mod, seen = new Set(), timestamp = Date.now(), isHmr = false, 
+    invalidateModule(mod, seen = new Set(), timestamp = Date.now(), isHmr = false,
     /** @internal */
     softInvalidate = false) {
         const prevInvalidationState = mod.invalidationState;
@@ -64342,7 +64342,7 @@ class ModuleGraph {
      * @param staticImportedUrls Subset of `importedModules` where they're statically imported in code.
      *   This is only used for soft invalidations so `undefined` is fine but may cause more runtime processing.
      */
-    async updateModuleInfo(mod, importedModules, importedBindings, acceptedModules, acceptedExports, isSelfAccepting, ssr, 
+    async updateModuleInfo(mod, importedModules, importedBindings, acceptedModules, acceptedExports, isSelfAccepting, ssr,
     /** @internal */
     staticImportedUrls) {
         mod.isSelfAccepting = isSelfAccepting;
@@ -64416,7 +64416,7 @@ class ModuleGraph {
     /**
      * @internal
      */
-    async _ensureEntryFromUrl(rawUrl, ssr, setIsSelfAccepting = true, 
+    async _ensureEntryFromUrl(rawUrl, ssr, setIsSelfAccepting = true,
     // Optimization, avoid resolving the same url twice if the caller already did it
     resolved) {
         // Quick path, if we already have a module for this rawUrl (even without extension)
@@ -66980,7 +66980,7 @@ function buildImportAnalysisPlugin(config) {
                                     });
                                 }
                                 else {
-                                    renderedDeps = depsArray.map((d) => 
+                                    renderedDeps = depsArray.map((d) =>
                                     // Don't include the assets dir if the default asset file names
                                     // are used, the path will be reconstructed by the import preload helper
                                     optimizeModulePreloadRelativePaths
@@ -67616,7 +67616,7 @@ function onRollupWarning(warning, warn, config) {
                 }
             }
             if (warning.plugin === 'rollup-plugin-dynamic-import-variables' &&
-                dynamicImportWarningIgnoreList.some((msg) => 
+                dynamicImportWarningIgnoreList.some((msg) =>
                 // @ts-expect-error warning is RollupLog
                 warning.message.includes(msg))) {
                 return;
