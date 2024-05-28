@@ -30901,7 +30901,9 @@ function buildHtmlPlugin(config) {
                 // ignore <link rel="stylesheet"> if its url can't be resolved
                 const resolvedStyleUrls = await Promise.all(styleUrls.map(async (styleUrl) => ({
                     ...styleUrl,
-                    resolved: await this.resolve(styleUrl.url, id),
+                    // resolved: await this.resolve(styleUrl.url, id),
+                    // BAO fixed
+                    resolved: styleUrl.url.endsWith('.scss') ? await this.resolve(styleUrl.url, id) : null,
                 })));
                 for (const { start, end, url, resolved } of resolvedStyleUrls) {
                     if (resolved == null) {
