@@ -16102,13 +16102,17 @@ async function fileToBuiltUrl(id, config, pluginContext, skipPublicCheck = false
         // emit as asset
         const { search, hash } = parse$i(id);
         const postfix = (search || '') + (hash || '');
+        const originalName = normalizePath$3(path$o.relative(config.root, file));
         const referenceId = pluginContext.emitFile({
             // Ignore directory structure for asset file names
-            name: path$o.basename(file),
+            // name: path$o.basename(file),
+            // BAO fixed
+            // preserveAssetsDir is the custom option
+            name: config.build.preserveAssetsDir ? originalName : path$o.basename(file),
             type: 'asset',
             source: content,
         });
-        const originalName = normalizePath$3(path$o.relative(config.root, file));
+        // const originalName = normalizePath$3(path$o.relative(config.root, file));
         generatedAssets.get(config).set(referenceId, { originalName });
         url = `__VITE_ASSET__${referenceId}__${postfix ? `$_${postfix}__` : ``}`; // TODO_BASE
     }
@@ -31857,7 +31861,10 @@ function cssPostPlugin(config) {
                         });
                         // emit corresponding css file
                         const referenceId = this.emitFile({
-                            name: cssAssetName,
+                            // name: cssAssetName,
+                            // BAO fixed
+                            // preserveAssetsDir is the custom option
+                            name: config.build.preserveAssetsDir ? cssAssetName.replace('scss', 'css') : cssAssetName,
                             type: 'asset',
                             source: chunkCSS,
                         });
